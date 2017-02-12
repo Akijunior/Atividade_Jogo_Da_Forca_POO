@@ -2,7 +2,6 @@
 package App;
 
 import javax.swing.JOptionPane;
-import Domain.Armazem_de_Nomes;
 import Domain.Boneco;
 import Domain.Jogo_Em_Acao;
 import java.util.Random;
@@ -14,9 +13,9 @@ public class TesteForca {
 		Jogo_Em_Acao jogo = new Jogo_Em_Acao();
 		Random palavra = new Random();
 		Boneco Forca = new Boneco();
-		Armazem_de_Nomes armazem = new Armazem_de_Nomes();
-		armazem.adicionar_palavra("Horizonte", "Perspectiva");
-		armazem.adicionar_palavra("Azul", "Cor");
+
+		jogo.armazem.adicionar_palavra("Horizonte", "Perspectiva");
+		jogo.armazem.adicionar_palavra("Azul", "Cor");
 		
 		int qtd_palavras = palavra.nextInt(4);
 		int i, cont = jogo.cont;
@@ -30,7 +29,8 @@ public class TesteForca {
 		while(cont < qtd_palavras) {
 
 			int posicaoDaPalavra = palavra.nextInt(jogo.bancoDePalavras.size());
-			int tamanho = jogo.bancoDePalavras[posicaoDaPalavra].length();
+			String palavraDoBanco = jogo.bancoDePalavras.get(posicaoDaPalavra);
+			int tamanho = palavraDoBanco.length();
 
 			String[] msg = new String[tamanho];
 			String msgF = "";
@@ -48,9 +48,9 @@ public class TesteForca {
 				msgF += msg[i];
 				}
 
-			msgF +=  "\n" + jogo.temas[posicaoDaPalavra] + "\n";
+			msgF +=  "\n" + jogo.temas.get(posicaoDaPalavra) + "\n";
 
-			String palavraEscolhida = jogo.bancoDePalavras[posicaoDaPalavra];
+			String palavraEscolhida = jogo.bancoDePalavras.get(posicaoDaPalavra);
 
 
 			int contErros = -1;
@@ -150,14 +150,14 @@ public class TesteForca {
 							}
 						}
 
-					msgF +=  "\n" + jogo.temas[posicaoDaPalavra] + "\n" + Forca.forca + "\n" + "Pontuacao: " +
+					msgF +=  "\n" + jogo.temas.get(posicaoDaPalavra) + "\n" + Forca.forca + "\n" + "Pontuacao: " +
 					jogo.pontuacao + "\nLetras Certas { "
 							+ letrasCertas + "}\nLetras Erradas { " + letrasWrong + "}\n";	
 					}
 
 					
 					if(essaNFoi == 1){
-						msgF +=  "\n" + jogo.temas[posicaoDaPalavra] + "\n" + Forca.forca + "\n" + "Letras Certas { "
+						msgF +=  "\n" + jogo.temas.get(posicaoDaPalavra) + "\n" + Forca.forca + "\n" + "Letras Certas { "
 								+ letrasCertas + "}\nLetras Erradas { " + letrasWrong + "}\n";	
 
 						JOptionPane.showMessageDialog(null, msgF + 
