@@ -8,9 +8,6 @@ public class Armazem_de_Nomes {
 	public List<String> listaDePalavras = new ArrayList<>();
 	public List<String> dicas = new ArrayList<>();
 
-	public String[] letrasErradas = {};
-	public String[] letrasCorretas = {};
-
 	public void adicionar_palavra(String palavra, String dica){
 
 		listaDePalavras.add(palavra);
