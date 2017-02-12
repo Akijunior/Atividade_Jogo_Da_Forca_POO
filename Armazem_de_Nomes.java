@@ -1,19 +1,19 @@
+package Domain;
 
-package Armazem;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.JOptionPane;
-import java.util.Random;
 public class Armazem_de_Nomes {
-	
-	public String[] listaDePalavras = {"Pera", "Alface", "Banana"};
-	public String[] dicas = {"É uma fruta", "É um legume", "É uma fruta amarela"};
-	int cont = listaDePalavras.length + 1;
-	
+
+	public List<String> listaDePalavras = new ArrayList<>();
+	public List<String> dicas = new ArrayList<>();
+
+	public String[] letrasErradas = {};
+	public String[] letrasCorretas = {};
+
 	public void adicionar_palavra(String palavra, String dica){
-		
-		listaDePalavras[cont] = palavra;
-		dicas[cont] = dica;
-		cont ++;
-	}
-	
+
+		listaDePalavras.add(palavra);
+		dicas.add(dica);
 		}
+	}
