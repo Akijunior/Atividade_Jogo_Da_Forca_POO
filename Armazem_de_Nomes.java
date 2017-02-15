@@ -13,4 +13,15 @@ public class Armazem_de_Nomes {
 		listaDePalavras.add(palavra);
 		dicas.add(dica);
 		}
+	
+	public List<String> receberListaPalavras(List<String> listaPalavras){
+		this.listaDePalavras = listaPalavras;
+		return listaDePalavras;
+		}
+	
+	
+	public List<String> receberListaDicas(List<String> listaDicas){
+		this.dicas = listaDicas;
+		return dicas;
+		}
 	}
