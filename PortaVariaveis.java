@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class PortaVariaveis {
 	
-	Random palavra = new Random();
+	Random sorteadorDePalavras = new Random();
 	Boneco Forca = new Boneco();
 	public Armazem_de_Nomes armazem = new Armazem_de_Nomes();
 
@@ -46,7 +46,7 @@ public class PortaVariaveis {
 	public int qtd_palavras(int alcance){
 		
 		while(qtd_palavras == 0){
-			this.qtd_palavras = palavra.nextInt(alcance);
+			this.qtd_palavras = sorteadorDePalavras.nextInt(alcance);
 			}
 		return this.qtd_palavras;
 		}
@@ -60,17 +60,17 @@ public class PortaVariaveis {
 		
 			if(letra.length() > 1 || letrasGerais.contains(letra) || Numeros.contains(letra)){
 				if(letra.length() > 1)
-					JOptionPane.showMessageDialog(null, "Não é válido digitar mais"
+					JOptionPane.showMessageDialog(null, "NÃ£o Ã© vÃ¡lido digitar mais"
 						+ " de uma letra por tentativa. Tente novamente.");
 		
 				if(letrasGerais.contains(letra)){
-					JOptionPane.showMessageDialog(null, "A letra digitada já foi "
+					JOptionPane.showMessageDialog(null, "A letra digitada jÃ¡ foi "
 						+ "citada antes.");
 					}
 					
 				if(Numeros.contains(letra)){
 					JOptionPane.showMessageDialog(null, "O caracter digitado "
-						+ "foi um número.");
+						+ "foi um nÃºmero.");
 					}
 				return false;
 				}
@@ -81,14 +81,17 @@ public class PortaVariaveis {
 		
 		if(numero == 1){
 			JOptionPane.showMessageDialog(null, msgF + 
-					"\nVocê perdeu essa. Mais sorte na próxima.");
+					"\nVocÃª perdeu essa. Mais sorte na prÃ³xima.");
 				}
 
 		else if(numero == 0){
 			pontuacao += 100;
 			JOptionPane.showMessageDialog(null, msgF + 
-					"\nParabéns, você venceu!");	
+					"\nParabÃ©ns, vocÃª venceu!");	
 				}
+		
+		bancoDePalavras.remove(posicaoDaPalavra);
+		temas.remove(posicaoDaPalavra);
 		
 		msgF = "";
 		Forca.forca = "\n--"
