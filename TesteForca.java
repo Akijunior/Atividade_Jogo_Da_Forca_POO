@@ -15,7 +15,7 @@ public class TesteForca {
 		jogo.armazem.adicionar_palavra("Afrodite", "Amor");
 		jogo.armazem.adicionar_palavra("Prisma", "Forma geometrica");
 		
-		jogo.qtd_palavras(4);
+		jogo.qtd_palavras(jogo.armazem.listaDePalavras.size());
 		jogo.fluxo_in_game();
 		
 			}
