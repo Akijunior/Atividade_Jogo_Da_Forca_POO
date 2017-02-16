@@ -8,7 +8,7 @@ public class Jogo_Em_Acao extends PortaVariaveis{
 		
 		while(qtd_palavras != 0) {
 			
-			posicaoDaPalavra = palavra.nextInt(bancoDePalavras.size());
+			posicaoDaPalavra = sorteadorDePalavras.nextInt(bancoDePalavras.size());
 			palavraDoBanco = bancoDePalavras.get(posicaoDaPalavra);
 			tamanho = palavraDoBanco.length();
 
@@ -100,16 +100,17 @@ public class Jogo_Em_Acao extends PortaVariaveis{
 					
 					msgF +=  "\n" + temas.get(posicaoDaPalavra) + "\n" + Forca.forca + "\n" + "Pontuacao: " +
 							pontuacao + "\nLetras Certas { "
-									+ letrasCertas + "}\nLetras Erradas { " + letrasWrong + "}\n";	
+									+ letrasCertas + "}\nLetras Erradas { " + letrasWrong + "}\n" + "Palavras já usadas " +
+							PalavrasUsadas + "\n";	
 					}
-					
+				
+					PalavrasUsadas.add(palavraEscolhida);
 					avaliadorDeResultado(essaNFoi);
 					
 					qtd_palavras --;	
 					}
 					JOptionPane.showMessageDialog(null, "Fim do jogo!\nPontuação final: " + pontuacao 
 							+ "\nAté a próxima!");
-					
 				}
 			}
 		
